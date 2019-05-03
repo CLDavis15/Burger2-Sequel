@@ -5,15 +5,15 @@ var db = require("../models");
 module.exports = function(app) {
 
     app.get("/", function(req, res) {
-         db.Burger.findAll({
+         db.Burgers.findAll({
 
          }).then(function(burgers) {
           res.json(burgers);
         });
       });
 
-    app.post("/api/burger", function(req, res) {
-        db.Burger.create({
+    app.post("/api/burgers", function(req, res) {
+        db.Burgers.create({
 
           burger_name: req.body.burger_name
 
@@ -23,7 +23,7 @@ module.exports = function(app) {
         })
       });
 
-      app.put("/api/burger/:id", function(req, res) {
+      app.put("/api/burgers/:id", function(req, res) {
       
         db.Burgers.update({
           devoured: req.body.devoured,
